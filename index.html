@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Ti ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  overflow: hidden;
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+  padding: 40px 20px;
+  animation: fadeIn 2s ease;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+.lock-box {
+  background: rgba(255,255,255,0.25);
+  padding: 25px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1em;
+  text-align: center;
+  width: 140px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  border-radius: 20px;
+  border: none;
+  background: #ff5e7e;
+  color: white;
+  font-size: 1em;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.letter {
+  display: none;
+  background: rgba(255,255,255,0.95);
+  color: #ff4d6d;
+  padding: 25px;
+  border-radius: 20px;
+  margin-top: 30px;
+  animation: fadeIn 1.5s ease;
+  text-align: left;
+}
+
+.letter h2 {
+  text-align: center;
+}
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 22px;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100vh); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Te amo ❤️</h1>
+  <p>Hay algo muy especial esperando solo para ti…</p>
+
+  <div class="lock-box">
+    <p>🔒 Ingresa la contraseña</p>
+    <input type="password" id="password" placeholder="****">
+    <br>
+    <button onclick="unlock()">Abrir</button>
+  </div>
+
+  <div class="letter" id="letter">
+    <h2>💌 Mi niña hermosa</h2>
+
+    <p>
+      Te escribí esta carta porque te amo mucho y quería expresártelo de una forma
+      distinta a lo habitual. Sé que soy difícil de entender y a veces muy complicado.
+      Muchas veces soy frío y poco demostrativo, pero déjame decirte que este loco
+      insensible está loco de amor por ti.
+      <br><br>
+      Eres lo más lindo que me ha pasado. Le pido a Dios que las cosas cambien y podamos
+      ser felices tú y yo en el futuro. Sueño con esa casita y despertar junto a ti
+      todos los días.
+      <br><br>
+      Eres una hermosa niña tanto en el corazón como en lo físico. Te mereces lo mejor
+      y espero poder ir mejorando para darte todo lo que te mereces.
+      <br><br>
+      Te amo mucho, no lo olvides. A pesar de todo, siempre estaré ahí para ti.
+      <br><br>
+      <strong>Con amor,</strong><br>
+      <strong>tu niño mañoso ❤️</strong>
+    </p>
+  </div>
+</div>
+
+<script>
+function unlock() {
+  const pass = document.getElementById("password").value;
+  if (pass === "1417") {
+    document.getElementById("letter").style.display = "block";
+  } else {
+    alert("Contraseña incorrecta 💔");
+  }
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
+}
+
+setInterval(createHeart, 350);
+</script>
+
+</body>
+</html>
